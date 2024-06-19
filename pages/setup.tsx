@@ -1,4 +1,4 @@
-import { Box, Button, Input, VStack, Text, Wrap, WrapItem } from '@chakra-ui/react';
+import {Button, VStack, Text, Wrap, WrapItem } from '@chakra-ui/react';
 import { FaSlack } from 'react-icons/fa';
 
 const SetupProfilePage = () => {

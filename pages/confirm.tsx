@@ -1,4 +1,4 @@
-import { Box, Button, Heading, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, List, ListItem, Text } from "@chakra-ui/react";
 // import { Circ} from '@react-md/icon';
 
 interface SelfieTaker {

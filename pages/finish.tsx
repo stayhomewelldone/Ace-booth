@@ -1,4 +1,4 @@
-import { Box, VStack, Heading, Text, Button } from '@chakra-ui/react';
+import { VStack, Heading, Text, Button } from '@chakra-ui/react';
 
 const CongratulationsPage = () => {
     return (
@@ -9,6 +9,7 @@ const CongratulationsPage = () => {
             </Text>
             <Button colorScheme="blackAlpha" >Continue</Button>
         </VStack>
+        
     );
 };
 
