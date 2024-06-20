@@ -1,4 +1,5 @@
-import { VStack, Heading, Text, Button } from '@chakra-ui/react';
+import { Box, VStack, Heading, Text, Button } from '@chakra-ui/react';
+import React from 'react';
 
 const CongratulationsPage = () => {
     return (
@@ -7,7 +8,6 @@ const CongratulationsPage = () => {
             <Text fontSize="xl" textAlign="center">
                 You have successfully navigated through all the screens.
             </Text>
-            <Button colorScheme="blackAlpha" >Continue</Button>
         </VStack>
         
     );

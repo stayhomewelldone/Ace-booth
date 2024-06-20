@@ -1,5 +1,7 @@
-import {Button, VStack, Text, Wrap, WrapItem } from '@chakra-ui/react';
+import { Button,VStack, Text, Wrap, WrapItem, Link } from '@chakra-ui/react';
+import React from 'react';
 import { FaSlack } from 'react-icons/fa';
+import NextLink from 'next/link';
 
 const SetupProfilePage = () => {
     const interests = ['Gardening', 'Photography', 'Cooking', 'Gaming', 'Crypto', 'Soccer', 'Yoga'];
@@ -9,7 +11,7 @@ const SetupProfilePage = () => {
     return (
         <VStack spacing={4} p={5}>
             <Text fontSize="2xl" fontWeight="bold" textAlign="center">Setup Profile</Text>
-            <Button leftIcon={<FaSlack />} colorScheme="purple" width="50%" size="lg">
+            <Button leftIcon={<FaSlack />} rounded={20} colorScheme="purple" width="300px" size="lg">
                 Sign in with Slack
             </Button>
             <Text mb={2}>Choose Your Hobbies</Text>
@@ -28,7 +30,9 @@ const SetupProfilePage = () => {
                     </WrapItem>
                 ))}
             </Wrap>
-            <Button colorScheme="blackAlpha" size="lg" width="50%" mt={5}>Continue</Button>
+            <NextLink  href="/mashup">
+            <Button bg="black" _hover={{ bg: 'black' }} size="lg" width="300px" rounded={10} color="white" variant="solid" mt={5}>Continue</Button>
+            </NextLink>
         </VStack>
     );
 };
