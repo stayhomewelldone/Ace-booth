@@ -1,4 +1,8 @@
 import { Box, VStack, Heading, Text, Button, SimpleGrid } from '@chakra-ui/react';
+import Link from 'next/link';
+import React from 'react';
+import NextLink from 'next/link';
+
 
 const ColleagueMashupPage = () => {
     const hobbies = [
@@ -25,7 +29,9 @@ const ColleagueMashupPage = () => {
                 <Text fontSize="md">Agency Name</Text>
                 <Text>XYZ Agency</Text>
             </Box>
-            <Button colorScheme="blackAlpha" mt={4} >Continue</Button>
+            <NextLink href='/connect'>
+            <Button bg="black" _hover={{ bg: 'black' }} mt={4} rounded={10} width="300px" color="white" variant="solid" size="lg">Continue</Button>
+            </NextLink>
         </VStack>
     );
 };
