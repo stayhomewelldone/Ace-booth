@@ -1,4 +1,6 @@
+import React from 'react';
 import { Box, Button, Text, VStack, Heading, Center } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 
 const HomePage = () => {
@@ -22,11 +24,13 @@ const HomePage = () => {
           <Center bg="gray.300" h="300px" borderRadius="md">
             <Text>Video Feed Placeholder</Text>
           </Center>
-  
-          <Button colorScheme="blackAlpha" variant="solid" size="lg">
+          </VStack>
+          <NextLink href='/confirm'>
+          <Button bg="black" _hover={{ bg: 'black' }} mt={4} width={"300px"} rounded={10} color="white" variant="solid" size="lg">
             Take Selfie
           </Button>
-        </VStack>
+          </NextLink>
+        
       </Box>
     );
 }
