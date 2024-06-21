@@ -1,4 +1,4 @@
-import { Box, Button, VStack, InputGroup, Input, InputRightElement, Text, Link } from '@chakra-ui/react';
+import { Button, VStack, InputGroup, Input, Text, Link } from '@chakra-ui/react';
 
 const EmailValidationPage = () => {
     return (
@@ -17,6 +17,7 @@ const EmailValidationPage = () => {
                 Didn't receive the email code? <Link color="blue.500" href="#">Resend</Link>
             </Text>
         </VStack>
+        
     );
 };
 
