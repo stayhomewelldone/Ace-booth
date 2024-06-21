@@ -1,4 +1,4 @@
-import { Box, VStack, Heading, Text, Button } from '@chakra-ui/react';
+import {  VStack, Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 
 const CongratulationsPage = () => {

@@ -1,5 +1,4 @@
 import { Box, VStack, Heading, Text, Button, SimpleGrid } from '@chakra-ui/react';
-import Link from 'next/link';
 import React from 'react';
 import NextLink from 'next/link';
 

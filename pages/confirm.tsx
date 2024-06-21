@@ -1,6 +1,8 @@
-import { Box, Button, Heading, Link, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
-import React from "react";
+import { Box, Button, Center, Heading, Link, List, ListItem, Text, Image } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import NextLink from 'next/link'; // Import NextLink from 'next/link'
+import { ref, getDownloadURL } from 'firebase/storage';
+import { storage } from './firebase/firebaseConfig';
 
 // import { Circ} from '@react-md/icon';
 
@@ -16,13 +18,22 @@ const ConfirmPage = () => {
         { name: 'Emily S.', role: 'Customer Support', points: 3 },
         { name: 'Alex M.', role: 'Marketing Specialist', points: 1 },
     ];
+    const [imgSrc, setImgSrc] = useState(null);
+    useEffect(() => {
+        // Load the image from local storage
+        const imageSrc = localStorage.getItem('capturedImage');
+        // const imageRef = ref(storage, `images/${Date.now()}.png`);
+        // getDownloadURL
+        setImgSrc(imageSrc);
+      }, []);
+
 
 
     return (
         
-        <Box p={4} display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="100vh" bg="gray.100">
+        <Box p={4} display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="100vh" >
         {/* Placeholder for the recently taken selfie */}
-        <Box bg="gray.300" w="50%" h="300px" mb={4}></Box>
+        <Center bg="gray.300"  h="300px" mb={4}>{imgSrc && <Image src={imgSrc}  alt="Captured Selfie" />} </Center>
         <Link as={NextLink} href='/'>
         <Button bg="black" _hover={{ bg: 'black' }} mt={4} width="300px" rounded={10} color="white" variant="solid" size="lg">
             Take New Selfie

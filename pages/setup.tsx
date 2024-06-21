@@ -1,4 +1,4 @@
-import { Button,VStack, Text, Wrap, WrapItem, Link } from '@chakra-ui/react';
+import { Button,VStack, Text, Wrap, WrapItem } from '@chakra-ui/react';
 import React from 'react';
 import { FaSlack } from 'react-icons/fa';
 import NextLink from 'next/link';
