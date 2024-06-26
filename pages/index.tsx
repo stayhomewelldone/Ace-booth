@@ -2,12 +2,6 @@ import React, { useCallback, useRef } from 'react';
 import { Box, Button, Text, VStack, Heading, Center } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import Webcam from "react-webcam";
-import { storage } from './firebase/firebaseConfig'; // Adjust the path based on your project structure
-import { ref, uploadBytes } from 'firebase/storage';
-
-
-
-
 
 const HomePage = () => {
   const webcamRef = useRef(null);
@@ -29,7 +23,7 @@ const HomePage = () => {
     //    });
     //  });
 
-  });
+  },[]);
 
     return (
         <Box p={4} display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="100vh" >
