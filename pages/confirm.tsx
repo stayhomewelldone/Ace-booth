@@ -1,10 +1,7 @@
 import { Box, Button, Center, Heading, Link, List, ListItem, Text, Image } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import NextLink from 'next/link'; // Import NextLink from 'next/link'
-import { ref, getDownloadURL } from 'firebase/storage';
-import { storage } from './firebase/firebaseConfig';
 
-// import { Circ} from '@react-md/icon';
 
 interface SelfieTaker {
     name: string;
@@ -18,12 +15,10 @@ const ConfirmPage = () => {
         { name: 'Emily S.', role: 'Customer Support', points: 3 },
         { name: 'Alex M.', role: 'Marketing Specialist', points: 1 },
     ];
-    const [imgSrc, setImgSrc] = useState(null);
+    const [imgSrc, setImgSrc] = useState<string | null>(null);
     useEffect(() => {
         // Load the image from local storage
         const imageSrc = localStorage.getItem('capturedImage');
-        // const imageRef = ref(storage, `images/${Date.now()}.png`);
-        // getDownloadURL
         setImgSrc(imageSrc);
       }, []);
 
