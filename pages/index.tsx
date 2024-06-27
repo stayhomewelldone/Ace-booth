@@ -7,21 +7,7 @@ const HomePage = () => {
   const webcamRef = useRef(null);
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    // const imageRef = ref(storage, `images/${Date.now()}.png`);
     localStorage.setItem('capturedImage', imageSrc);
-
-
-    //  // Convert base64 to Blob
-    //  fetch(imageSrc)
-    //  .then(res => res.blob())
-    //  .then(blob => {
-    //    // Upload the Blob to Firebase Storage
-    //    uploadBytes(imageRef, blob).then((snapshot) => {
-    //      console.log('Image uploaded successfully');
-    //    }).catch((error) => {
-    //      console.error('Upload failed', error);
-    //    });
-    //  });
 
   },[]);
 

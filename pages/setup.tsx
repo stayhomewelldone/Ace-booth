@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { FaGoogle } from 'react-icons/fa';
-import { collection, addDoc, doc,updateDoc, arrayUnion, } from "firebase/firestore"; 
+import { collection, addDoc, doc } from "firebase/firestore"; 
 import { db } from './firebase/firebaseConfig';
 
 
@@ -22,7 +22,6 @@ const SetupProfilePage = () => {
         if (session && session.user) {
         try {
         const usersRef = collection(db, "users");
-        const listRef = doc(db, "users", "listOfIds");
 
         const docRef = await addDoc(usersRef, {
             name: session.user.name,
@@ -32,10 +31,10 @@ const SetupProfilePage = () => {
             image: imgSrc
         });
         console.log("Document written with ID: ", docRef.id);
-        await updateDoc(listRef, {
-            ids: arrayUnion(docRef.id)
-        });
+        
         console.log("field written with ID: ", docRef.id);
+        localStorage.setItem('docRefId', docRef.id);
+
 
     } catch (e) {
         console.error("Error adding document or field: ", e)

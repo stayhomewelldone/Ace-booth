@@ -1,4 +1,4 @@
-import { Box, VStack, Heading, Text, Button, SimpleGrid, Center, Image } from '@chakra-ui/react';
+import { Box, VStack, Heading, Text, Button, SimpleGrid, Center, Image, ListItem , List} from '@chakra-ui/react';
 import React, {  useEffect, useState } from 'react';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from './firebase/firebaseConfig';
@@ -14,13 +14,10 @@ const ColleagueMashupPage = () => {
     const [ids, setIds] = useState<string[]>([]);
     const [prompt, setPrompt] = useState<string>();
     const [pageImage, setPageImage] = useState<string>();
-
-
-    const hobbies = [
-        { title: 'Photography', details: 'Travel enthusiast, Album link' },
-        { title: 'Painting', details: 'Art lover, Gallery link' },
-        { title: 'Sports', details: 'Fitness fanatic, Workout routine' }
-    ];
+    const [hobbies, setHobbies] = useState<string[] | null>();
+    const [interests, setInterests] = useState<string[] | null>();
+    const [name, setName] = useState<string | null>();
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -95,7 +92,10 @@ const ColleagueMashupPage = () => {
             }
 
         })
+
       }, [prompt])
+
+    
     async function getUser(id: string) {
         const docRef = doc(db, "users", id);
             const docSnap = await getDoc(docRef);
@@ -103,6 +103,10 @@ const ColleagueMashupPage = () => {
                 
                 console.log("Document data:", docSnap.data());
                 setImage(docSnap.data().image);
+                setHobbies(docSnap.data().hobbies);
+                setInterests(docSnap.data().interests);
+                setName(docSnap.data().name);
+                
 
               } else {
                 // docSnap.data() will be undefined in this case
@@ -125,17 +129,23 @@ const ColleagueMashupPage = () => {
 
       <Image src={pageImage} alt="Mashup" />  : <GooSpinner size={100} color="#686769"/>}</Center>
       
-            <Heading size="lg">John Doe & Jane Smith Mashup</Heading>
-            <Text fontSize="xl" fontWeight="bold">Interests & Hobbies of Jane Smith</Text>
-            <SimpleGrid columns={1} spacing={2} w="50%">
-                {hobbies.map((hobby, index) => (
+            <Heading size="lg">Mashup with {name}</Heading>
+            <Text fontSize="xl" fontWeight="bold">Interests & Hobbies of {name}</Text>
+            <SimpleGrid columns={2} spacing={2} w="30%">
+                {hobbies?.map((hobby, index) => (
                     <Box key={index} p={3} shadow="md" borderWidth="1px" borderRadius="lg">
-                        <Heading size="md">{hobby.title}</Heading>
-                        <Text mt={2}>{hobby.details}</Text>
+                        <Heading size="md">{hobby}</Heading>
+                        <Text mt={2}>{hobby}</Text>
+                    </Box>
+                ))}
+                {interests?.map((interest, index) => (
+                    <Box key={index} p={3} shadow="md" borderWidth="1px" borderRadius="lg">
+                        <Heading size="md">{interest}</Heading>
+                        <Text mt={2}>{interest}</Text>
                     </Box>
                 ))}
             </SimpleGrid>
-            <Text fontSize="xl" fontWeight="bold" mt={4}>Agency Details of Jane Smith</Text>
+            <Text fontSize="xl" fontWeight="bold" mt={4}>Agency Details of {name}</Text>
             <Box p={3} shadow="md" borderWidth="1px" borderRadius="lg">
                 <Text fontSize="md">Agency Name</Text>
                 <Text>XYZ Agency</Text>
