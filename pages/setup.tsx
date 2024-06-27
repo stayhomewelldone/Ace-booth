@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { FaGoogle } from 'react-icons/fa';
-import { collection, addDoc, doc } from "firebase/firestore"; 
+import { collection, addDoc  } from "firebase/firestore"; 
 import { db } from '../utils/firebase/firebaseConfig';
 
 
 const SetupProfilePage = () => {
     const interests: Array<string> = ['Gardening', 'Photography', 'Cooking', 'Gaming', 'Crypto', 'Soccer', 'Yoga'];
-    const hobbies: Array<string> = ['Gardening', 'Photography', 'Cooking', 'Gaming', 'Crypto', 'Soccer', 'Yoga'];
+    const hobbies: Array<string> = ['Writing', 'Fishing', 'Music', 'Fitness', 'Painting', 'Reading', 'Cycling'];
 
     const [selectedHobbies, setSelectedHobbies] = useState<string[] | null>([]);
     const [selectedInterests, setSelectedInterests] = useState<string[] | null >([]);
