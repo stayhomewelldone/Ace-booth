@@ -135,13 +135,11 @@ const ColleagueMashupPage = () => {
                 {hobbies?.map((hobby, index) => (
                     <Box key={index} p={3} shadow="md" borderWidth="1px" borderRadius="lg">
                         <Heading size="md">{hobby}</Heading>
-                        <Text mt={2}>{hobby}</Text>
                     </Box>
                 ))}
                 {interests?.map((interest, index) => (
                     <Box key={index} p={3} shadow="md" borderWidth="1px" borderRadius="lg">
                         <Heading size="md">{interest}</Heading>
-                        <Text mt={2}>{interest}</Text>
                     </Box>
                 ))}
             </SimpleGrid>

@@ -11,6 +11,9 @@ const openai = new OpenAI({
 type ResponseData = {
   result: ChatCompletion.Choice
 }
+export const config = {
+  maxDuration: 30,
+};
 
 export default async function Retrievehandler(
     req: NextApiRequest,

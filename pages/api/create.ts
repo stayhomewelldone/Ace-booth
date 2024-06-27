@@ -10,6 +10,9 @@ const openai = new OpenAI({
 type ResponseData = {
   result: Image
 }
+export const config = {
+  maxDuration: 15,
+};
  
 export default async function Edithandler(
   req: NextApiRequest,
