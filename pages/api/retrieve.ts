@@ -14,7 +14,7 @@ type ResponseData = {
 
 export default async function Retrievehandler(
     req: NextApiRequest,
-    res: NextApiResponse<ResponseData>
+    res: NextApiResponse<ResponseData["result"]>
   ) {
       const { imageLocal, imageRemote} = req.body;
     const response = await openai.chat.completions.create({

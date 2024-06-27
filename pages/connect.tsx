@@ -1,6 +1,10 @@
 import {  VStack, Button, Heading, Text, List, ListItem, Divider } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import NextLink from 'next/link';
+import { doc,updateDoc, arrayUnion, } from "firebase/firestore"; 
+import { db } from './firebase/firebaseConfig';
+
+
 
 
 const ColleagueConnectPage = () => {
@@ -8,6 +12,20 @@ const ColleagueConnectPage = () => {
         { name: 'Alice Johnson and Jaden Linger' },
         { name: 'Bob Smith and John Doe' }
     ];
+
+    useEffect(() => {
+
+        const addData = async () => {
+        const docRefId =  localStorage.getItem('docRefId');
+        const listRef = doc(db, "users", "listOfIds");
+        await updateDoc(listRef, {
+            ids: arrayUnion(docRefId)
+        });
+        console.log("field written with ID: ", docRefId);
+
+        }
+        addData();
+    }, []); 
 
     return (
         <VStack spacing={4} p={5}>
