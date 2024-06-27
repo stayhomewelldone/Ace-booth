@@ -11,7 +11,7 @@ type ResponseData = {
   result: Image
 }
 export const config = {
-  maxDuration: 15,
+  maxDuration: 60,
 };
  
 export default async function Edithandler(
