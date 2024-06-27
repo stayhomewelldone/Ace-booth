@@ -1,7 +1,7 @@
 import { Box, VStack, Heading, Text, Button, SimpleGrid, Center, Image, ListItem , List} from '@chakra-ui/react';
 import React, {  useEffect, useState } from 'react';
 import { doc, getDoc } from "firebase/firestore";
-import { db } from './firebase/firebaseConfig';
+import { db } from '../utils/firebase/firebaseConfig';
 import { MagicSpinner,TraceSpinner, GooSpinner } from "react-spinners-kit";
 
 

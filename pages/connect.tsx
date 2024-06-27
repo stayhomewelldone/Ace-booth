@@ -2,7 +2,7 @@ import {  VStack, Button, Heading, Text, List, ListItem, Divider } from '@chakra
 import React, { useEffect } from 'react';
 import NextLink from 'next/link';
 import { doc,updateDoc, arrayUnion, } from "firebase/firestore"; 
-import { db } from './firebase/firebaseConfig';
+import { db } from '../utils/firebase/firebaseConfig';
 
 
 

@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { FaGoogle } from 'react-icons/fa';
 import { collection, addDoc, doc } from "firebase/firestore"; 
-import { db } from './firebase/firebaseConfig';
+import { db } from '../utils/firebase/firebaseConfig';
 
 
 const SetupProfilePage = () => {
